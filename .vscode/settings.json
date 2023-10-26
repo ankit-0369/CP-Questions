@@ -69,5 +69,9 @@
         "typeinfo": "cpp",
         "valarray": "cpp"
     },
-    "cph.general.onceMaintainerMessage": false
+    "cph.general.onceMaintainerMessage": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "python.formatting.provider": "none"
 }
