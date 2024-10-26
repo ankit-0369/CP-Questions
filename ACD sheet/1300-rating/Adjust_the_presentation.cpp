@@ -17,29 +17,14 @@ typedef long long ll;
 typedef long long int lli;
 #define loop(i, j, k) for (int i = j; i < k; i += 1)
 #define rloop(i, j, k) for (int i = j; i >= k; i -= 1)
+#define all(v)   v.begin(), v.end()
+#define rall(v)   v.rbegin(), v.rend() 
 #define PI 3.1415926535897932384626433832795
 
 using namespace std;
 
 void solve(){
- int n; cin>>n;
- int a[n+1]= {0};
- for(int i=0; i<n; i++){ 
-    int x; cin>>x;
-    if(x<=n) a[x]++;
-    
- }
- map<int, int> m;
- int maxi= 0;
- for(int i=1; i<=n; i++){
-    for(int j= i; j<=n; j+= i){
-        m[j]+= a[i];
-        maxi= max(maxi, m[j]);
-    }
- }
-
- cout<<maxi<<"\n";
-
+ 
 return;
 }
 
