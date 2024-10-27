@@ -25,30 +25,32 @@ using namespace std;
 
 void solve(){
  int n; cin>>n;
- vector<pii> vp(n);
- for(int i=0; i<n; i++){
-    int x, y; cin>>x>>y;
-    vp[i]= {x,y};
+ vector<int> a(n);
+ int cntodd= 0;
+ for(auto &x:a){
+     cin>>x;
+     if(x&1) cntodd++;
  }
 
-sort(vp.begin(), vp.end(), [&](pii a, pii b)-> bool {
-    int cnt1= 0, cnt2= 0;
-       int cnt1= 0, cnt2= 0;
-    cnt1+= a.first + a.second;
-    cnt2+= b.second + b.first;
-    // cout<<vp[0].first<<"\n";
-     return (cnt1 < cnt2);
-    return (a.first < b.first);
-});
+ if(cntodd>0 && cntodd != n){
+    cout<<-1<<"\n";
+    return;
+ }else{
+    vector<int> ans;
+    for(int i= 29; i>=0; i--)
+        ans.push_back(1<<i);
 
-for(auto p : vp){
-    cout<<p.first <<" "<<p.second<<" ";
-}
+    if(cntodd == 0) ans.push_back(1);
+    cout<<ans.size()<<"\n";
+    for(auto val: ans){
+        cout<<val<<" ";
+    }
 
-cout<<"\n";
+    cout<<endl;
 
-
-return;
+ }
+ return;
+ 
 }
 
 int main(){

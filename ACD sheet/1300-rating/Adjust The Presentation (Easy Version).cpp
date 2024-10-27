@@ -23,32 +23,38 @@ typedef long long int lli;
 
 using namespace std;
 
-void solve(){
- int n; cin>>n;
- vector<pii> vp(n);
+bool solve(){
+ int n,m,q;
+cin>>n>>m>>q;
+  vi a(n+1);
  for(int i=0; i<n; i++){
-    int x, y; cin>>x>>y;
-    vp[i]= {x,y};
+    int x; cin>>x;
+    a[i]= x;
  }
 
-sort(vp.begin(), vp.end(), [&](pii a, pii b)-> bool {
-    int cnt1= 0, cnt2= 0;
-       int cnt1= 0, cnt2= 0;
-    cnt1+= a.first + a.second;
-    cnt2+= b.second + b.first;
-    // cout<<vp[0].first<<"\n";
-     return (cnt1 < cnt2);
-    return (a.first < b.first);
-});
-
-for(auto p : vp){
-    cout<<p.first <<" "<<p.second<<" ";
+vi b;
+for(int i=0; i<m; i++){
+  int x; cin>>x;
+  b.push_back(x);
 }
 
-cout<<"\n";
 
+ auto it= unique(b.begin(), b.end());
+ b.resize(distance(b.begin(), it));
+ int i=0, k=0;
+ set<int> st;
+ for(int i=0; i<b.size(); i++){
+  
+    if(b[i] == a[k]){
+      st.insert(b[i]); 
+      k++;
+    }else{
+      if(st.find(b[i]) == st.end()) return false;
+     
 
-return;
+    }
+ }
+return true;
 }
 
 int main(){
@@ -59,7 +65,11 @@ cout.tie(NULL);
 int t;
 cin>>t;
 while(t--){
-  solve();
+  if(solve()){
+    cout<<"YA\n";
+  }else{
+    cout<<"TIDAK\n";
+  }
 }
 
 return 0;
